@@ -1,0 +1,141 @@
+.card-list-products{
+  position: relative;
+  max-width: 310px;
+  height: 250px;
+  &__next {
+    @include display-grid;
+    @include grid-template-rows(1fr 1fr 1fr);
+    gap: 8px;
+    justify-items: center;
+    // align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    border-radius: .25rem;
+    background-color: rgba(14, 37, 72, 0.6);
+    &:hover {
+      background-color: rgba(14, 37, 72, 0.75);
+    }
+    &:hover .hidde{
+      display: initial;
+    }
+    &--title {
+      font-size: 1.2em;
+      line-height: 1.22;
+      font-weight: bold;
+      color: $color-white;
+    }
+    &--description {
+      align-self: center;
+      margin: 0;
+      font-size: .8em;
+      line-height: 1.22;
+      font-weight: normal;
+      color: $color-white;
+    }
+    &--actions {
+      align-self: end;
+    }
+    & .btn-white {
+      background-color: transparent;
+      color: $color-white;
+      border-color: $color-white;
+      &:hover {
+        border-color: $color-white;
+        background-color: #f0f3f9;
+        color: $veryDarkBlue;
+        opacity: .80;
+      }
+    }
+  }
+  .hidde {
+    display: initial;
+  }
+}
+@include media(desktop-s){
+  .card-list-products{
+    .hidde {
+      display: none;
+    }
+  }
+}
+// nueva card
+.card-items {
+  width: 100%;
+  max-width: 18rem;
+  @include display-grid;
+  @include grid-template-rows(150px auto);
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  &:hover {
+    transform: translateY(-0.3333333333rem);
+    box-shadow: 0 0.5rem 2rem 0 rgba(31, 45, 65, 0.25);
+  }
+  &:hover .card-items__description {
+    visibility: visible;
+  }
+  &__head {
+    position: relative;
+    & figure {
+      width: 100%;
+      height: 150px;
+      img {
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__description {
+    content: '';
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: .25rem;
+      border-top-right-radius: .25rem;
+      background: rgba(0,0,0,.60);
+      & p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+        text-align: center;
+        color: $color-white;
+      }
+  }
+  &__body {
+    padding: 8px;
+  }
+  &__title {
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.22;
+    font-family: $Fuente2;
+    color: $color-primario;
+  }
+  &__actions {
+    @include display-grid;
+    @include grid-template-columns(1fr);
+    gap: 8px;
+    & .btn {
+      font-size: 12px;
+      padding: 12px 8px;
+    }
+  }
+}
+
+

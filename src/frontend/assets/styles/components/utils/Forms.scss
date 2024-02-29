@@ -1,0 +1,9 @@
+.form {
+  &__wrap {
+    background-image: $bg-gradient-principal;
+    max-width: 100vw;
+  }
+  &__container {
+    padding: 1em;
+  }
+}

@@ -1,0 +1,33 @@
+.steps-bar {
+  background: $color-white;
+  @include display-grid;
+  @include grid-template-columns(auto 1fr);
+  justify-items: end;
+  align-items: center;
+  gap: 8px;
+  &__svg {
+    width: 100px;
+    height: 100px;
+    & circle {
+      will-change: auto;
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+    }
+  }
+  &__circle-fixid{
+    stroke: $veryLightgray;
+  }
+  &__circle-progress {
+    stroke-dasharray: 251;
+    stroke-dashoffset: 100;
+    stroke-dashoffset: calc(251 - (251 * 33) / 100);
+    stroke: $variantGreen;
+  }
+  &__text {
+    font-size: 1rem;
+    font-family: $Fuente1;
+    fill: $veryDarkBlue;
+    font-weight: bold;
+  }
+}

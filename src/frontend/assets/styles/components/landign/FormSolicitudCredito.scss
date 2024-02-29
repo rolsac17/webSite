@@ -1,0 +1,33 @@
+.nav-step {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 650px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0 3em;
+  &__circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $bg-btn-round;
+    color: $color-btn-round;
+  }
+  &__line {
+    flex: 1;
+    height: 3px;
+    background-color: $bg-btn-round;
+    margin: auto 0;
+    &:last-child {
+      display: none;
+    }
+  }
+  &__circle.is-full, &__line.is-full  {
+    background-color: $bg-navItem;
+    color: $color-white;
+  }
+}

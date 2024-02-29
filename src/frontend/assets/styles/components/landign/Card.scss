@@ -1,0 +1,73 @@
+.card {
+  min-height: 360px;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: $color-primario;
+  &__title {
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1em;
+    font-family: $Fuente2;
+    color: $color-white;
+  }
+  &__container--img img{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+  }
+
+  //Breakpoints tablet
+  @include media(tablet) {
+    transition: 450ms all;
+    transform-origin: center left;
+    &:hover ~ .card {
+      transform: translate3d(40px, 0, 0);
+    }
+    &__title {
+      font-size: 1.3em;
+    }
+  }
+  //Breakpoint desktop small
+  @include media(desktop-s) {
+
+  }
+  //Breakpoint desktop mediano
+  @include media(desktop-m) {
+    &__title {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.list {
+  margin: 40px 0 0 0;
+  padding: 0;
+  list-style: none;
+  color: $color-white;
+  font-size: .8em;
+  line-height: 1.2;
+  font-weight: 500;
+  //Breakpoint desktop small
+  @include media(desktop-s) {
+    font-size: .9em;
+  }
+  &--items {
+    margin-bottom: 12px;
+  }
+  &--items:last-child {
+    margin-bottom: 0;
+  }
+  &--items::before {
+    content: '';
+    height: 6px;
+    margin-right: 12px;
+    padding: 0 3px;
+    font-size: 5px;
+    border-radius: 50%;
+    background-color: $color-secundario;
+    vertical-align: middle;
+  }
+}

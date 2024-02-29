@@ -1,0 +1,9 @@
+.logo--container {
+  margin: 0 auto;
+  @include media(desktop-s){
+    margin: 0;
+  }
+  & img {
+    width: 200px;
+  }
+}

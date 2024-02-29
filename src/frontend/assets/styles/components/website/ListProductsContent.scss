@@ -1,0 +1,7 @@
+.list-products__content {
+  @include display-grid;
+  @include grid-template-columns(repeat(auto-fit, 16rem));
+  justify-content: center;
+  gap: 32px;
+  margin-top: 36px;
+}

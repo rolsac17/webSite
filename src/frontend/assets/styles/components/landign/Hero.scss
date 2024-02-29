@@ -1,0 +1,8 @@
+.LHero {
+  &__container {
+    justify-content: center;
+    grid-row-gap: 1em;
+    @include display-grid;
+    @include grid-template-columns(minmax(auto, 1024px));
+  }
+}

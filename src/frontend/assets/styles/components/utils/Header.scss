@@ -1,0 +1,225 @@
+//Estilo del header en mobil
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  @include display-grid;
+  @include grid-template-columns(auto 1fr);
+  grid-template-areas: 'logo navHeader';
+  gap: 8px;
+  height: 50px;
+  background: $bg-gradient-principal;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  &__logo {
+    @include display-grid;
+    align-items: center;
+    grid-area: logo;
+    margin-left: 1em;
+  }
+}
+//Estilo de la navTop 
+.nav-header {
+  grid-area: navHeader;
+  @include display-grid;
+  @include grid-template-columns(1fr auto);
+  align-items: center;
+  grid-template-areas: 'actions menu';
+  gap: 8px;
+  margin-right: 1em;
+}
+//Estilos del menu que va dentro de la navTop
+.menu {
+  grid-area: menu;
+  &__dropdown {
+    @include display-grid;
+    align-items: center;
+    &--button {
+      background-color: transparent;
+    }
+  }
+  &__content {
+    overflow-y: scroll;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
+    width: 100%;
+    z-index: 1;
+    padding: 1em;
+    background: $bg-gradient-principal;
+    transition: .2s;
+  }
+  &__content.is-open{
+    display: block;
+  }
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &--link {
+      border-bottom: 1px solid #a2acba;
+      a {
+        display: block;
+        padding: 8px 0;
+        font-size: .9em;
+        color: $color-white;
+        &:hover {
+          color: $grayishBlue;
+        }
+      }
+    }
+  }
+}
+//titulo que separa las dos barras
+.title--products {
+  margin-top: 40px;
+  margin-bottom: 22px;
+  font-size: 1.5em;
+  color: $color-white;
+}
+//nav products
+.nav-products {
+  &__container {
+    @include display-grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    justify-content: center;
+    gap: 12px;
+  }
+  &__items {
+    position: relative;
+    overflow: hidden;
+    max-width: 150px;
+    height: 90px;
+    border-radius: 5px;
+    background-color: $mostlyDarkBlue;
+    &:hover::before {
+      content: "";
+      height: 4px;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $moderateLimeGreen;
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      background-color: transparent;
+    }
+  }
+  &__icon {
+    text-align: center;
+    img{
+      width: 32px;
+      height: 32px;
+    } 
+  }
+  &__title {
+    margin-top: 8px;
+    text-align: center;
+    font-size: .9em;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $color-white;
+  }
+}
+.actions {
+  grid-area: actions;
+  justify-self: end;
+}
+.icon_open {
+  background-image: url(https://fileserver.tonantel.com/f34b9b96b5209c29a5a14ceb925cc4f1efc0c0d94a0262cfa4ff215c5932e488open.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+.icon_closed {
+  @extend .icon_open;
+  background-image: url(https://fileserver.tonantel.com/24e4ed9930366ec495e8678b78b43b3587817753f4a514c5cef6936dddbf382fclosed.svg);
+}
+.is-mobil {
+  display: grid;
+}
+.is-desktop {
+  display: none;
+}
+//Breakpoint min-width: 768px
+@include media(tablet){
+  .menu {
+    &__content {
+      padding: 2em 4em;
+    }
+  }
+}
+//Breakpoint min-width: 992px
+@include media(desktop-s){
+  .is-mobil {
+    display: none;
+  }
+  .is-desktop {
+    display: block;
+  }
+  .header {
+    grid-template-rows: 50px 90px;
+    grid-template-areas: 'logo navHeader'
+    'navProducts navProducts';
+    gap: 0;
+  }
+  .nav-header {
+    grid-template-areas: 'menu actions';
+  }
+  .menu {
+    justify-self: end;
+    &__content{
+      display: block;
+      height: 100%;
+      min-height: auto;
+      position: relative;
+      top: 0;
+      padding: 0;
+      background: transparent;
+    }
+    &__items {
+      display: block;
+      &--link {
+        display: inline-block;
+        border-bottom: 0;
+        a {
+          display: inline-block;
+          padding: 8px 12px 8px 2px;
+        }
+      }
+    }
+  }
+  .nav-products {
+    grid-area: navProducts;
+    background: $color-white;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15) !important;
+    &__container {
+      gap: initial;
+    }
+    &__items {
+      border-radius: initial;
+      background-color: $color-white;
+      border-right: 1px solid $veryLightgray;
+      transition: .1s;
+      &:first-child{
+        border-left: 1px solid $veryLightgray;
+      }
+      &:hover::before {
+        height: 5px;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+      }
+    }
+    &__title {
+      color: $veryDarkGray;
+    }
+  }
+}

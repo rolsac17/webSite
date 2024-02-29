@@ -1,0 +1,39 @@
+.wrapper-table {
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $Fuente1;
+  color: $color-white;
+}
+
+.table thead th, .table tbody td {
+  padding: 1rem;
+}
+
+.table thead th {
+  background-color: $color-primario;
+  border-bottom: 2px solid $color-white;
+}
+
+
+.table tbody tr:nth-of-type(odd) {
+  background: $bg-color-input;
+}
+
+.moneda::before {
+  content: "Q.";
+  color: $color-input;
+}
+
+.title {
+  font-size: 1em;
+  text-align: center;
+  color: $color-white;
+  margin: 1.5em 0;
+}

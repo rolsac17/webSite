@@ -1,0 +1,11 @@
+.list-creditos {
+  height: 100%;
+  min-height: 100vh;
+  &__top {
+    height: 200px;
+    background-color: $lightGrayishBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

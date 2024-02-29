@@ -1,0 +1,71 @@
+.terms--container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  font-size: 12px;
+  color: $color-claro;
+}
+
+.checkbox--container {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+}
+
+.checkbox--container input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label{
+  cursor:pointer;
+}
+
+.checkbox--container label::before{
+  content:'';
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 0.25em;
+  background-color: #ffffff;
+  text-align: center;
+  line-height: 22px;
+}
+
+.checkbox--container input[type=checkbox]:checked + label:before{
+  font-family: 'icomoon';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  speak-as: none;
+  content: "✔";
+  font-size: 1em;
+  transition: .1s;
+  color: $color-link;  
+}
+
+.terms--content a {
+  color: $color-link;
+  &:hover {
+    color: $color-link;
+  }
+}
+
+.mensaje-exito {
+  @include display-grid;
+  @include grid-template-columns(1fr 40px);
+  justify-items: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  &__icono {
+    @include display-grid;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+}

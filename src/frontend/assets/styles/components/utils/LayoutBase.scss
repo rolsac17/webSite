@@ -1,0 +1,23 @@
+.layout-base {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+  @include display-grid;
+  @include grid-template-columns(auto);
+  @include grid-template-rows(50px 1fr auto);
+  grid-template-areas: 'header'
+  'main'
+  'footer';
+  &.header {
+    grid-area: header;
+  }
+  &.main {
+    grid-area: main;
+  }
+  &.footer {
+    grid-area: footer;
+  }
+  @include media(desktop-s){
+    @include grid-template-rows(140px 1fr auto);
+  }
+}

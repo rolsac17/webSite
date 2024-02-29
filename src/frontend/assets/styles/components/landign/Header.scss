@@ -1,0 +1,14 @@
+.LHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  height: $height-nav;
+  background: $bg-principal;
+  border-bottom: 1px solid $color-white;
+  @include media(desktop-s) {
+    // $height-nav: 70px;
+    // height: $height-nav;
+    padding: 0 140px;
+  }
+}

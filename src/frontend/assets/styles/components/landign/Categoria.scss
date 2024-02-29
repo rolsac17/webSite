@@ -1,0 +1,8 @@
+.categoria {
+  &__title {
+    @extend .u-title;
+    span {
+      color: $color-primario;
+    }
+  }
+}

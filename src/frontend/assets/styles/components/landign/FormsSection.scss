@@ -1,0 +1,24 @@
+.forms {
+  background-color: $color-claro;
+  &__title {
+    @extend .u-title;
+  }
+  &__tabs {
+    @include display-grid;
+    grid-row-gap: 8px;
+    padding: 0 16px;
+    margin-top: 22px;
+    .btn-gray.is-active {
+      background-color: $bg-btn-roundHover;
+      color: $color-claro;
+    }
+  }
+  @include media(tablet) {
+    &__tabs {
+      @include grid-template-columns(repeat(auto-fit, 18rem));
+      justify-content: center;
+      grid-column-gap: 8px;
+    }
+  }
+}
+

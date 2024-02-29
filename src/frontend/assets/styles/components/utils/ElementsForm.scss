@@ -1,0 +1,304 @@
+.form-group-radio {
+  display: inline-block;
+  & input[type='radio'], label {
+    margin-right: 8px;
+    // margin-bottom: 8px;
+  }
+}
+.form-group-checkbox {
+  & input[type='checkbox'], label {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}
+.form-group {
+  position: relative;
+  &__box {
+    width: 100%;
+    min-height: calc(2.75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: 0.2s border-color;
+    background-clip: padding-box;
+    border: 1px solid $color-input;
+    border-radius: .25rem;
+    font-family: $Fuente1;
+    color: $color-white;
+    background-color: $bg-color-input;
+    &:hover, &:focus, &:-webkit-autofill {
+      border: 1px solid $color-white;
+    }
+  }
+  &__input-diff {
+    display: block;
+    width: 100%;
+    padding: 20px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    transition: 0.2s border-color;
+    background-clip: padding-box;
+    border: 0;
+    outline: none;
+    border: 1px solid $color-input;
+    border-radius: .25rem;
+    font-family: $Fuente1;
+    color: $color-white;
+    background-color: $bg-color-input;
+    &:focus, &:not(:placeholder-shown), &:-webkit-autofill {
+      padding-top: 1.62rem;
+      padding-bottom: 0.87rem;
+    }
+
+  }
+    &__input-diff {
+      &:focus, &:not(:placeholder-shown), &:-webkit-autofill {
+        & {
+          border: 1px solid $color-white;
+        }
+        &::placeholder{
+          color: transparent;
+        }
+        & + label {
+          opacity: 1;
+        }
+      }
+    @include media(desktop-m) {
+      font-size: 1em;
+    }
+  }
+  &__input {
+    @extend .form-group__box;
+    outline: none;
+  }
+  &__textArea {
+    @extend .form-group__input;
+  }
+  &__label {
+    font-size: 14px;
+    color: $color-white;
+    margin-bottom: 5px;
+  }
+  &__select {
+    @extend .form-group__input;
+    background-image: url('../../../images/ico-row-bottom.svg');
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    -webkit-appearance: none;
+  }
+  &__label-diff {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.75rem;
+    z-index: 1;
+    cursor: text;
+    pointer-events: none;
+    color: $color-claro;
+    font-size: 12px;
+    transition: all 0.1s ease-in-out;
+    opacity: 0;
+  }
+  &__error {
+    display: none;
+    margin-left: 0.75rem;
+    color: #ff4842;
+    font-size: 12px;
+    line-height: 1.33;
+    margin-bottom: 0;
+  }
+}
+// validamos los canpos
+.is-invalid .form-group__label {
+  color: #ff4842;
+}
+.is-invalid .form-group__input {
+  border: 1px solid #ff4842;
+}
+.is-invalid .form-group__error {
+  display: block;
+}
+// Esta parte es especial para los formularios de label e input en linea
+.grid-inline {
+  @include display-grid;
+  @include media(tablet) {
+    @include grid-template-columns(1fr 1fr);
+    column-gap: 12px;
+    label {
+      justify-self: end;
+      align-self: center;
+    }
+    p {
+      grid-column: 2 / 3;
+    }
+  }
+}
+.container-strech {
+  justify-content: center;
+  @include display-grid;
+  @include grid-template-columns(minmax(auto, 550px));
+  // background-color: red;
+}
+.actions {
+  @include display-grid;
+  @include grid-template-columns(1fr 1fr);
+  align-items: center;
+  height: 60px;
+  background-color: #eceff1;
+  &__previuos {
+    width: 100%;
+    padding: 8px;
+    justify-self: end;
+    button {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid $veryLightgray;
+      border-radius: .25rem;
+      color: $veryDarkBlue;
+      background-color: $veryLightgray;
+      &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      }
+    }
+  }
+  &__next {
+    width: 100%;
+    padding: 8px;
+    button {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: .25rem;
+      border: 1px solid $variantGreen;
+      background-color: $variantGreen;
+      color: $color-white;
+      &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      }
+    }
+  }
+  @include media(tablet) {
+    &__previuos {
+      width: 150px;
+    }
+    &__next {
+      width: 150px;
+    }
+  }
+}
+
+input::placeholder {
+  color: $color-input;
+}
+
+// estas clases setean el padig izquierdo y derecho
+.border-none-r {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.border-none-l {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+//titulos por seccion del form version final
+.form {
+  &__title-principal {
+    margin-bottom: 22px;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    color: $color-claro;
+  }
+  &__title-group{
+    font-size: 16px;
+    line-height: 1.22;
+    color: $color-claro;
+  }
+  &__description {
+    margin: 12px 0;
+    font-size: 16px;
+    line-height: 1.22;
+    color: $color-input;
+  }
+  @include media(tablet){
+    &__title-principal {
+      font-size: 20px;
+    }
+    &__title-group {
+      font-size: 18px;
+    }
+  }
+  @include media(desktop-2){
+    &__title-principal {
+      font-size: 24px;
+    }
+    &__title-group {
+      font-size: 20px;
+    }
+  }
+}
+
+//Line separation
+.line-separation {
+  border: 1px solid $color-white;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+//Input radios
+.group-radios {
+  & input[type='radio']{
+    display: none;
+  }
+  & input[type='radio']:checked + label {
+    padding: .375rem .75rem;
+    background-color: #1976d2;
+  }
+  & input[type='radio']:checked + label::before {
+    display: none;
+  }
+  &__title {
+    margin-left: 10px;
+    margin-bottom: 2px;
+    color: $color-white;
+    font-size: 1em;
+  }
+  & label{
+    line-height: 2;
+    position: relative;
+    height: calc(2.75rem + 2px);
+    padding: .375rem .75rem .375rem 2.50rem;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: $color-white;
+    &::before {
+      content: '';
+      top: 11px;
+      left: 10px;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 3px solid $color-white;
+    }
+    &:hover {
+      background-color: $bg-color-input;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

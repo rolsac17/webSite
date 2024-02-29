@@ -1,0 +1,41 @@
+.terms {
+  &__title {
+    margin: 22px 0 12px 0;
+    color: #3a3c3f;
+    font-size: 24px;
+    line-height: 1.22;
+    font-weight: 700;
+  }
+  &__update {
+    margin: 0px 0 32px 0;
+    color: #606164;
+    font-size: 18px;
+    line-height: 1.22;
+    font-weight: 400;
+  }
+  &__line {
+    border: 1px solid $lightGrayishBlue;
+    width: 100%;
+  }
+  &__header {
+    margin: 1em 0;
+    color: #3a3c3f;
+    font-size: 24px;
+    line-height: 1.22;
+    font-weight: 700;
+  }
+  &__subsection {
+    margin: 1em 0;
+    color: #606164;
+    font-size: 1em;
+    line-height: 1.22;
+    font-weight: 400;
+  }
+  & ol {
+    color: #3a3c3f;
+  }
+  & ul {
+    list-style: none;
+  }
+
+}

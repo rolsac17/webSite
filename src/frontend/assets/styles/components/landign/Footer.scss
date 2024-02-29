@@ -1,0 +1,124 @@
+.LFooter {
+  background: linear-gradient(to right, #223a50, #122a3e);
+  &__container {
+    @include display-grid;
+    @include grid-template-columns(1fr);
+  }
+  &__up {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+  &__down {
+    height: $height-nav;
+    line-height: 4;
+    text-align: center;
+    background-color: $bg-color-footer;
+    &--description {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: $color-footer;
+    }
+  }
+}
+
+.info {
+  margin: 0 auto;
+  &__group {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  &__title {
+    margin-bottom: 10px;
+    font-size: .9em;
+    font-weight: 600;
+    font-family: $Fuente2;
+    color: $color-primario;
+  }
+  &__description {
+    font-size: 12px;
+    line-height: 1.2;
+    color: $color-white;
+  }
+}
+
+.LSocial {
+  text-align: center;
+  &__title {
+    @extend .info__title;
+  }
+  &__link {
+    margin: 0 5px;
+    font-size: 22px;
+    color: $color-white;
+  }
+  &__link:hover {
+    color: $color-link;
+    text-decoration: none;
+  }
+  &__pbx {
+    margin: 10px 0;
+    font-size: 12px;
+    color: $color-white;
+  }
+}
+
+.logo {
+  text-align: center;
+  figure img {
+    width: 100px;
+    height: 80px;
+  }
+}
+
+//Breakpoints tablet
+@include media(tablet) {
+  .LFooter {
+    &__up {
+      padding: 1em 0 1em 1em;
+      @include display-grid;
+      @include grid-template-columns(repeat(3, 1fr));
+    }
+  }
+  .info {
+    margin: 0;
+    padding-right: 1em;
+    border-right: 1px solid $color-input;
+  }
+  .LSocial {
+    border-right: 1px solid $color-input;
+  }
+  .logo figure img {
+    width: 180px;
+    height: auto;
+
+    figure {
+      margin: 0;
+    }
+  }
+}
+//Breakpoint desktop small
+@include media(desktop-s) {
+
+}
+//Breakpoint desktop mediano
+@include media(desktop-m){
+  .info {
+    &__title{
+      font-size: 1.5em;
+    }
+    &__description {
+      font-size: .9em;
+    }
+  }
+  .LSocial {
+    &__pbx {
+      font-size: .9em;
+    }
+  }
+  .logo figure img {
+    width: 220px;
+    height: auto;
+  }
+}

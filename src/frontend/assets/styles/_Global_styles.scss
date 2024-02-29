@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $Fuente1;
+}
+
+h1, h2, h3, figure {
+  margin: 0;
+}
+
+label {
+  margin: 0;
+}
+
+button {
+  outline: none;
+  border: 0;
+  &:focus {
+    outline: none;
+    outline-offset: none;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 12px 24px;
+  font-size: .8em;
+  font-weight: 700;
+  background-color: transparent;
+  vertical-align: middle;
+  line-height: 1.5;
+  border-radius: .25rem;
+  user-select: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  &-round {
+    border-radius: 2rem;
+  }
+  &-small {
+    width: 100px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  &-big {
+    display: block;
+    width: 100%;
+  }
+  &-login {
+    background-color: $limeGreen;
+    color: $color-white;
+    border: 1px solid $moderateLimeGreen;
+    &:hover {
+      background-color: $moderateLimeGreen;
+      color: $color-white;
+    }
+  }
+  &-green {
+    background-color: $darkLimeGreen;
+    color: $color-white;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 900;
+    &:hover {
+      background-color: $veryDarkLimeGreen;
+      color: $color-white;
+    }
+  }
+  &-green-principal {
+    font-family: $Fuente1;
+    color: $color-claro;
+    box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+    background-color: $color-primario;
+    &:hover {
+      background-color: #319211;
+    }
+  }
+  &-form {
+    display: block;
+    width: 100%;
+    margin: 30px auto 0 auto;
+  }
+  &-white {
+    background-color: $color-white;
+    color: $veryDarkBlue;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 900;
+    border: 1px solid $color-white;
+    box-shadow: 0 3px 6px 0 rgba(128, 128, 128, 0.16);
+    &:hover {
+      border: 1px solid $veryDarkBlue;
+    }
+  }
+  &-gray {
+    background-color: $bg-btn-round;
+    color: $color-btn-round;
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+  }
+  &-black {
+    font-size: 12px;
+    border: 1px solid $veryDarkBlue;
+    color: $veryDarkBlue;
+    &:hover {
+      background-color: $veryDarkBlue;
+      color: $color-white;
+    }
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  @include media(tablet) {
+    font-size: 14px;
+  }
+  @include media(desktop-s) {
+    font-size: 16px;
+  }
+}
+
+
+.two {
+  @include display-grid;
+  @include grid-template-columns(1fr 1fr);
+}
+//titutlos landign
+.u-title {
+  margin: 1em 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: $Fuente2;
+  color: $color-secundario;
+  @include media(desktop-s) {
+    font-size: 32px;
+  }
+}
+//website
+//envoltura base para todas las secciones
+.u-wrapper {
+  padding: 2em 2em 4em 2em;
+}
+//contener principal pra todas las secciones
+.u-container {
+  @include display-grid;
+  @include grid-template-columns(minmax(auto, 1024px));
+  justify-content: center;
+}
+//contenedor del svg para dar forma redondas a las seccciones
+.u-curver{
+  position: relative;
+  & svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2rem;
+    width: 100%;
+  }
+  &.text-white {
+    color: white;
+  }
+  &.text-light {
+    color: $color-claro;
+  }
+  &.text-lightGreen {
+    color: $lightGreen;
+  }
+  &.text-lightGrayishBlue{
+    color: $lightGrayishBlue;
+  }
+  @include media(tablet) {
+    & svg { 
+      height: 3rem;
+    }
+  }
+}
+//base para formar card
+.base-card {
+  border-radius: .25rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+  background-color: $color-white;
+}
+@include media(tablet){
+  .btn {
+    &-form {
+      max-width: 300px;
+    }
+  }
+}
